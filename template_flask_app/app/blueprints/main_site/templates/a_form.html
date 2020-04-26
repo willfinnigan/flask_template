@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% set active_page = "a_form" %}
+
+{% block content %}
+    <main role="main">
+        <div class="container-fluid">
+            <div class="row mt-3"></div>
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4 text-center" >
+                    <h1>Example form</h1>
+                    <form method="POST" action="" novalidate>
+                        {{ form.hidden_tag() }}
+                        <div class="form-group">
+                            {{form.string.label(for="string") }}
+                            {{form.string(type='string', class="form-control", placeholder="a string")}}
+                            <small id="exampleHelp" class="form-text text-muted">
+                                Here is some example text
+                            </small>
+                            {% for error in form.string.errors %}
+                                <span style="color: #ff0000;">[{{ error }}]</span>
+                            {% endfor %}
+                        </div>
+
+                        {{form.submit(class="btn btn-primary") }}
+
+                    </form>
+                </div>
+                <div class="col-sm-4"></div>
+            </div>
+        </div>
+    </main>
+
+{% endblock %}

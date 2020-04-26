@@ -2,7 +2,7 @@ from flask import Flask
 from redis import Redis
 import rq
 from flask_wtf.csrf import CSRFProtect
-from template_flask_app import Config
+from template_flask_app.config import Config
 
 from template_flask_app.app.blueprints import main_site
 
@@ -19,6 +19,9 @@ def create_app(config_class=Config):
     app.task_queue = rq.Queue('tasks', connection=app.redis, default_timeout=600)
 
     return app
+
+
+
 
 app = create_app()
 
