@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>Homology search</title>
+
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <base href="{{ url_for('main_site.homology_search') }}">
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/siimple@3.3.1/dist/siimple.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <script type=text/javascript>
+        $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+        </script>
+
+        <script>
+            var csrftoken = $('meta[name=csrf-token]').attr('content')
+
+            $.ajaxSetup({
+                beforeSend: function(xhr, settings) {
+                    if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type) && !this.crossDomain) {
+                        xhr.setRequestHeader("X-CSRFToken", csrftoken)
+                    }
+                }
+            })
+        </script>
+
+    </head>
+
+    <body>
+
+        <div class="siimple-navbar siimple-navbar--dark siimple-navbar--fluid topnav" id="myTopnav">
+            <a class="siimple-navbar-title" href="{{ url_for('main_site.homology_search') }}">Homology Search</a>
+
+        </div>
+
+
+
+
+        {% block content %}{% endblock %}
+
+
+    </body>
+
+</html>
