@@ -3,11 +3,12 @@
         <title>Page title</title>
         {% include 'head/metatags.html' %}
         {% include 'head/style.html' %}
+        {% include 'head/head_scripts.html' %}
         {% include 'head/visjs.html' %}
     </head>
 
     <body>
-        {% include 'body_navbar.html' %}
+        {% include 'navbar/navbar.html' %}
 
         {% block content %}{% endblock %}
 

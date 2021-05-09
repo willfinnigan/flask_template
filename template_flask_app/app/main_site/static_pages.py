@@ -17,3 +17,7 @@ def a_form():
 @bp.route('/network', methods=['GET'])
 def network():
     return render_template('network.html', nodes=[], edges=[], options={})
+
+@bp.route('/phaser', methods=['GET'])
+def phaser():
+    return render_template('phaser.html')
