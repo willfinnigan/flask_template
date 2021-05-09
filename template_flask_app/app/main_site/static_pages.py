@@ -1,6 +1,6 @@
-from template_flask_app.app.blueprints.main_site import bp
+from template_flask_app.app.main_site import bp
 from flask import render_template
-from template_flask_app.app.blueprints.main_site.forms import AForm
+from template_flask_app.app.main_site.forms import AForm
 
 @bp.route('/', methods=['GET'])
 def home():
