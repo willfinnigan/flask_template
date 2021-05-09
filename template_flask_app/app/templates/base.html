@@ -1,19 +1,17 @@
 <html>
     <head>
         <title>Page title</title>
-        {% include 'metatags.html' %}
-        {% include 'style.html' %}
-
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+        {% include 'head/metatags.html' %}
+        {% include 'head/style.html' %}
+        {% include 'head/visjs.html' %}
     </head>
 
     <body>
-        {% include 'navbar.html' %}
+        {% include 'body_navbar.html' %}
 
         {% block content %}{% endblock %}
 
-        {% include 'scripts.html' %}
+        {% include 'body/body_scripts.html' %}
     </body>
 </html>
 
